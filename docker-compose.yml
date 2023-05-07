@@ -3,6 +3,7 @@ services:
   bot:
     container_name: nevermind_ow
     build:
-      dockerfile: dockerfile
+      context: .
+      dockerfile: Dockerfile
     logging:
       driver: "json-file"
