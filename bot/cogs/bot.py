@@ -44,8 +44,9 @@ class Bot(commands.Cog):
                     c = await asyncGetInfo(f'https://api.henrikdev.xyz/valorant/v3/matches/na/{name}/{tag}', session)
                     try:
                         players = c['data'][0]['players']['all_players']
-                    except:
-                        print("--- Problem ---")
+                    except Exception as e:
+                        print("**--- Problem ---**")
+                        print(e)
                         print(players)
                         await asyncio.sleep(DELAY)
                         continue
