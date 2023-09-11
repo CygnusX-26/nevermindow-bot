@@ -97,7 +97,7 @@ class Bot(commands.Cog):
     @app_commands.command(name='mutenevermindmobile', description='mutes nevermind mobile')
     async def mutenevermindmobile(self, interaction: discord.Interaction) -> None:
         self.mutewolfymobile = not(self.mutewolfymobile)
-        await interaction.response.send_message("Muted nevermind mobile messages", ephemeral=True)
+        await interaction.response.send_message(f"Set nevermind mobile blocking to {self.mutewolfymobile}", ephemeral=True)
     
 
 
