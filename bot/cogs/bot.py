@@ -45,7 +45,14 @@ class Bot(commands.Cog):
             if self.channel != None:
                 async with ClientSession() as session:
                     c = await asyncGetInfo(f'https://api.henrikdev.xyz/valorant/v3/matches/na/{name}/{tag}', session)
-                    players = c['data'][0]['players']['all_players']
+                    try:
+                        players = c['data'][0]['players']['all_players']
+                    except Exception as e:
+                        print("**--- Problem ---**")
+                        print(e)
+                        print(players)
+                        await asyncio.sleep(DELAY)
+                        continue
                     map = c['data'][0]['metadata']['map']
                     if (self.match_id == c['data'][0]['metadata']['matchid']):
                         await asyncio.sleep(DELAY)
