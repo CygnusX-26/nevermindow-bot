@@ -6,7 +6,7 @@ from discord.ext import commands
 class NevermindOWChecker(commands.Bot):
     def __init__(self):
         super().__init__(
-            command_prefix=commands.when_mentioned_or(os.getenv("?")),
+            command_prefix=commands.when_mentioned_or("?"),
             description='YOU ARE TERRIBLE NEBERMINDOW',
             intents=discord.Intents.all(),
             application_id = int(os.getenv("APPLICATION_ID")))

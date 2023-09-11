@@ -24,12 +24,15 @@ class Bot(commands.Cog):
         self.bot = bot
         self.channel = None
         self.match_id = None
+        self.mutewolfymobile = False
     
     @commands.Cog.listener()
-    async def on_message(message: discord.Message):
+    async def on_message(self, message: discord.Message) -> None:
         if (message.author.id == 340590217658630144):
             if (random.randint(0, 1000) == 420):
                 await message.channel.send("YOU ARE TERRIBLE NEBERMINDOW")
+            if (message.author.mobile_status != discord.Status.offline and self.mutewolfymobile):
+                await message.delete()
 
     #what gets run when the bot starts
     @commands.Cog.listener()
@@ -83,6 +86,11 @@ class Bot(commands.Cog):
     async def unset(self, interaction: discord.Interaction) -> None:
         self.channel = None
         await interaction.response.send_message("Channel unset", ephemeral=True)
+
+    @app_commands.command(name='mutenevermindmobile', description='mutes nevermind mobile')
+    async def mutenevermindmobile(self, interaction: discord.Interaction) -> None:
+        self.mutewolfymobile = not(self.mutewolfymobile)
+        await interaction.response.send_message("Muted nevermind mobile messages", ephemeral=True)
     
 
 
