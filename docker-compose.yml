@@ -7,3 +7,14 @@ services:
       dockerfile: Dockerfile
     logging:
       driver: "json-file"
+
+  lavalink:
+    container_name: lavalink
+    image: fredboat/lavalink:master
+    restart: always
+    ports:
+      - "2333:2333"
+    volumes:
+      - ./Lavalink/application.yml:/opt/Lavalink/application.yml
+    logging:
+      driver: "json-file"
