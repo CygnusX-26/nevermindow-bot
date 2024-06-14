@@ -24,7 +24,7 @@ class Bot(commands.Cog):
             if (random.randint(0, 1000) == 420):
                 await message.channel.send("YOU ARE TERRIBLE NEBERMINDOW")
             if (message.author.mobile_status != discord.Status.offline and self.mutewolfymobile):
-                await message.delete()
+                pass
         if (message.author.bot == False and random.randint(0, 10000) == 420):
             base_image = Image.open('big_thumb.png')
             response = requests.get(message.author.display_avatar)
