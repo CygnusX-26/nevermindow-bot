@@ -8,7 +8,7 @@ services:
     logging:
       driver: "json-file"
     extra_hosts:
-      - "host.docker.internal:2333"
+      - "host.docker.internal:host-gateway"
 
   lavalink:
     container_name: lavalink
