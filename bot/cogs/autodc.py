@@ -15,8 +15,6 @@ class AutoDc ( commands.Cog):
         if (not isBot and hasLeft):
             beforeChannel = before.channel
             if ( len(beforeChannel.members) == 1 and beforeChannel.members[0].id == self.bot.user.id ):
-                beforeChannel.voice_states
                 await before.channel.guild.voice_client.disconnect()
-                print( "only one in vc ;0;")
 async def setup(bot: commands.Bot):
     await bot.add_cog(AutoDc(bot))
