@@ -18,7 +18,7 @@ class NevermindOWChecker(commands.Bot):
 
     async def setup_hook(self) -> None:
         self.remove_command('help')
-        nodes = [wavelink.Node(uri="http://localhost:2333", password="verysecurepassword1234")]
+        nodes = [wavelink.Node(uri="http://host.docker.internal:2333", password="verysecurepassword1234")]
         await wavelink.Pool.connect(nodes=nodes, client=self, cache_capacity=100)
 
         await self.load_extensions()
