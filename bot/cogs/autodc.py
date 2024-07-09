@@ -9,7 +9,7 @@ class AutoDc ( commands.Cog):
     @commands.Cog.listener()
     async def on_voice_state_update( self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
 
-        hasLeft = before.channel is not None and after.channel is None
+        hasLeft = before.channel is not None
         isBot = member.id == self.bot.user.id
 
         if (not isBot and hasLeft):
